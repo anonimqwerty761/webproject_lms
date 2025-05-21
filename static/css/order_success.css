@@ -1,0 +1,87 @@
+/* Основные стили страницы подтверждения заказа */
+.order-success {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.order-success h1 {
+    color: #27ae60;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.order-success p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.order-success p:last-of-type {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+/* Стили кнопки */
+.btn {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Анимация успешного заказа */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.order-success {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Иконка успеха (если хотите добавить) */
+.order-success::before {
+    content: "✓";
+    display: block;
+    font-size: 4rem;
+    color: #27ae60;
+    margin-bottom: 1.5rem;
+}
+
+/* Адаптивность */
+@media (max-width: 650px) {
+    .order-success {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+
+    .order-success h1 {
+        font-size: 1.7rem;
+    }
+
+    .order-success p {
+        font-size: 1rem;
+    }
+}

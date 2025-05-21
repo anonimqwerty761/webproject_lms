@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Store - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ urlfor('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="{{ urlfor('index') }}">Laptop Store</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ urlfor('index') }}">Главная</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <a href="{{ urlfor('cart') }}">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">
+                        {% if 'cart' in session %}
+                            {{ session['cart']|length }}
+                        {% else %}
+                            0
+                        {% endif %}
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Laptop Store. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ urlfor('static', filename='js/script.js') }}"></script>
+</body>
+</html>

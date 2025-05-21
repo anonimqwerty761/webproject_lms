@@ -1,0 +1,22 @@
+<html>
+<head>
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='css/cart.css') }}">
+    <title>
+        {% block title %}Заказ оформлен{% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+{% block content %}
+    <div class="order-success">
+        <h1>Спасибо за ваш заказ!</h1>
+        <p>Ваш заказ успешно оформлен. Мы свяжемся с вами в ближайшее время для подтверждения.</p>
+        <p>Номер вашего заказа: #{{ order_number }}</p>
+        <a href="{{ url_for('index') }}" class="btn">Вернуться на главную</a>
+    </div>
+</body>
+</html>
+{% endblock %}

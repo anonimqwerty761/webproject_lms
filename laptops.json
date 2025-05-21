@@ -1,0 +1,73 @@
+[
+    {
+        "id": 1,
+        "name": "Apple MacBook Pro 16\" M1 Pro",
+        "price": 2499,
+        "description": "16.2-дюймовый дисплей Retina, чип Apple M1 Pro, 16 ГБ оперативной памяти, 512 ГБ SSD",
+        "image": "macbook_pro.jpg",
+        "specs": {
+            "processor": "Apple M1 Pro",
+            "ram": "16 ГБ",
+            "storage": "512 ГБ SSD",
+            "display": "16.2\" Retina",
+            "os": "macOS"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Dell XPS 15",
+        "price": 1799,
+        "description": "15.6-дюймовый 4K UHD дисплей, Intel Core i7, 16 ГБ оперативной памяти, 1 ТБ SSD",
+        "image": "dellxps.jpg",
+        "specs": {
+            "processor": "Intel Core i7-11800H",
+            "ram": "16 ГБ",
+            "storage": "1 ТБ SSD",
+            "display": "15.6\" 4K UHD",
+            "os": "Windows 11"
+        }
+    },
+    {
+        "id": 3,
+        "name": "HP Spectre x360",
+        "price": 1399,
+        "description": "13.5-дюймовый сенсорный дисплей, Intel Core i5, 8 ГБ оперативной памяти, 512 ГБ SSD",
+        "image": "hpspectre.jpg",
+        "specs": {
+            "processor": "Intel Core i5-1135G7",
+            "ram": "8 ГБ",
+            "storage": "512 ГБ SSD",
+            "display": "13.5\" Touch",
+            "os": "Windows 11"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Lenovo ThinkPad X1 Carbon",
+        "price": 1599,
+        "description": "14-дюймовый FHD дисплей, Intel Core i5, 16 ГБ оперативной памяти, 512 ГБ SSD",
+        "image": "thinkpad.jpg",
+        "specs": {
+            "processor": "Intel Core i5-1135G7",
+            "ram": "16 ГБ",
+            "storage": "512 ГБ SSD",
+            "display": "14\" FHD",
+            "os": "Windows 11 Pro"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Asus ROG Zephyrus G14",
+        "price": 1499,
+        "description": "14-дюймовый QHD дисплей, AMD Ryzen 9, 16 ГБ оперативной памяти, 1 ТБ SSD, RTX 3060",
+        "image": "asusrog.jpg",
+        "specs": {
+            "processor": "AMD Ryzen 9 5900HS",
+            "ram": "16 ГБ",
+            "storage": "1 ТБ SSD",
+            "display": "14\" QHD",
+            "os": "Windows 11",
+            "gpu": "NVIDIA RTX 3060"
+        }
+    }
+]

@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='css/main.css') }}">
+    <title>
+        {% block title %}Главная{% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+{% block content %}
+<body>
+    <section class="hero">
+        <h2>Лучшие ноутбуки по отличным ценам</h2>
+        <p>Широкий выбор ноутбуков для работы, учебы и игр</p>
+        <a href="#" class="btn">Посмотреть каталог</a>
+    </section>
+
+    <section class="featured-products">
+        <h2>Популярные модели</h2>
+        <div class="products-grid">
+            {% for laptop in laptops %}
+            <div class="product-card">
+                <img src="{{ url_for('static', filename='images/' + laptop.image) }}" alt="{{ laptop.name }}">
+                <h3>{{ laptop.name }}</h3>
+                <p class="price">${{ laptop.price }}</p>
+                <p class="description">{{ laptop.description[:100] }}...</p>
+                <div class="product-actions">
+                    <a href="{{ url_for('product', laptop_id=laptop.id) }}" class="btn">Подробнее</a>
+                    <form action="{{ url_for('add_to_cart') }}" method="post" class="add-to-cart-form">
+                        <input type="hidden" name="laptop_id" value="{{ laptop.id }}">
+                        <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+                        <button type="submit" class="btn">В корзину</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>Быстрая доставка</h3>
+            <p>Доставка по всей стране за 1-3 дня</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Гарантия качества</h3>
+            <p>Гарантия на все товары от 1 года</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-headset"></i>
+            <h3>Поддержка 24/7</h3>
+            <p>Наша служба поддержки всегда готова помочь</p>
+        </div>
+    </section>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,65 @@
+<html>
+<head>
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='css/checkout.css') }}">
+    <title>
+        {% block title %}Оформление заказа{% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+{% block content %}
+<body>
+    <div class="checkout-container">
+        <div class="order-summary">
+            <h2>Ваш заказ</h2>
+            <ul>
+                {% for item in cart_items %}
+                <li>
+                    {{ item.name }} x {{ item.quantity }} - ${{ item.price * item.quantity }}
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="total">
+                <strong>Итого:</strong> ${{ total_price }}
+            </div>
+        </div>
+
+        <div class="checkout-form">
+            <h2>Данные для оформления</h2>
+            <form action="{{ url_for('process_order') }}" method="post">
+                <div class="form-group">
+                    <label for="name">ФИО:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Адрес доставки:</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment">Способ оплаты:</label>
+                    <select id="payment" name="payment" required>
+                        <option value="card">Кредитная карта</option>
+                        <option value="cash">Наличные при получении</option>
+                        <option value="bank">Банковский перевод</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Подтвердить заказ</button>
+            </form>
+        </div>
+    </div>
+</body></html>
+{% endblock %}

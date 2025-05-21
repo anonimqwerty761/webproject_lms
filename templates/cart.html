@@ -1,0 +1,49 @@
+
+
+
+
+<html>
+<head>
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='css/cart.css') }}">
+    <title>
+        {% block title %}Корзина{% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+{% block content %}
+<body>
+    <h1>Ваша корзина</h1>
+
+    {% if cart_items %}
+        <div class="cart-items">
+            {% for item in cart_items %}
+            <div class="cart-item">
+                <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
+                <div class="item-details">
+                    <h3>{{ item.name }}</h3>
+                    <p class="price">${{ item.price }} x {{ item.quantity }}</p>
+                    <p class="total">${{ item.price * item.quantity }}</p>
+                </div>
+                <a href="{{ url_for('remove_from_cart', laptop_id=item.id) }}" class="remove-item">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="cart-summary">
+            <h3>Итого: ${{ total_price }}</h3>
+            <a href="{{ url_for('checkout') }}" class="btn">Оформить заказ</a>
+            <a href="{{ url_for('index') }}" class="btn continue-shopping">Продолжить покупки</a>
+        </div>
+    {% else %}
+        <div class="empty-cart">
+            <p>Ваша корзина пуста</p>
+            <a href="{{ url_for('index') }}" class="btn">Начать покупки</a>
+        </div>
+    {% endif %}
+{% endblock %}
+</body>
+</html>
